@@ -2,7 +2,7 @@ import React from "react";
 
 const AllToys = () => {
   return (
-    <div>
+    <div className="container">
       <h2>all toys</h2>
     </div>
   );

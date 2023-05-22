@@ -53,8 +53,8 @@ const AddToy = () => {
                 <div className="form-outline form-white mb-4">
                   <input
                     type="text"
-                    name="sellername"
                     placeholder="Enter seller name"
+                    name="sellername"
                     className="form-control form-control-lg"
                   />
                   <label className="form-label"> Seller Name</label>
