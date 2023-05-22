@@ -6,14 +6,44 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 
 const AddToy = () => {
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-
   const handlerAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
-    const email = form.name.value;
-    console.log(email);
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const sellername = form.sellername.value;
+    const selleremail = form.selleremail.value;
+    const category = form.category.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const details = form.details.value;
+
+    const toys = {
+      name,
+      photo,
+      sellername,
+      selleremail,
+      category,
+      price,
+      rating,
+      quantity,
+      details,
+    };
+
+    fetch("http://localhost:5000/toy", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(toys),
+    })
+      .then((res) => res.json)
+      .then((daa) => {
+        //console.log(data);
+      });
+
+    console.log(toys);
   };
   return (
     <div>
@@ -33,32 +63,31 @@ const AddToy = () => {
               <div className="mb-md-5 mt-md-4">
                 <h2 className="fw-bold mb-2">Please Fill Up The Form!</h2>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label">Name</label>
                   <input
                     type="name"
                     name="name"
                     placeholder="Enter your toy name"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label">Name</label>
                 </div>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label">Photo Url</label>
                   <input
                     type="text"
                     name="photo"
                     placeholder="Picture URL of the toy"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label">Photo Url</label>
                 </div>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label"> Seller Name</label>
                   <input
                     type="text"
                     placeholder="Enter seller name"
                     name="sellername"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label"> Seller Name</label>
-                  <p className="fw-bold text-danger">{error}</p>
                 </div>
                 <div className="form-outline form-white mb-4">
                   <input
@@ -68,20 +97,18 @@ const AddToy = () => {
                     className="form-control form-control-lg"
                   />
                   <label className="form-label"> Seller email</label>
-                  <p className="fw-bold text-danger">{error}</p>
                 </div>
                 <div className="form-outline form-white mb-4">
                   <select
+                    name="category"
                     className="form-select"
                     aria-label="Default select example"
                   >
-                    <option>Select Sub Category</option>
-                    <option value="Taddy Bear"> Taddy Bear</option>
+                    <option value="Taddy Bear">Taddy Bear</option>
                     <option value="Horse">Horse</option>
                     <option value="Dainosur">Dainosur</option>
                   </select>
                   <label className="form-label"> Sub Category </label>
-                  <p className="fw-bold text-danger">{error}</p>
                 </div>
                 <div className="form-outline form-white mb-4">
                   <input
@@ -91,7 +118,6 @@ const AddToy = () => {
                     className="form-control form-control-lg"
                   />
                   <label className="form-label"> Price</label>
-                  <p className="fw-bold text-danger">{error}</p>
                 </div>
                 <div className="form-outline form-white mb-4">
                   <input
@@ -101,7 +127,6 @@ const AddToy = () => {
                     className="form-control form-control-lg"
                   />
                   <label className="form-label"> Rating</label>
-                  <p className="fw-bold text-danger">{error}</p>
                 </div>
                 <div className="form-outline form-white mb-4">
                   <input
@@ -111,7 +136,6 @@ const AddToy = () => {
                     className="form-control form-control-lg"
                   />
                   <label className="form-label"> Available quantity</label>
-                  <p className="fw-bold text-danger">{error}</p>
                 </div>
                 <div className="form-outline form-white mb-4">
                   <textarea
@@ -121,7 +145,6 @@ const AddToy = () => {
                     className="form-control form-control-lg"
                   />
                   <label className="form-label"> Detail description</label>
-                  <p className="fw-bold text-danger">{error}</p>
                 </div>
 
                 <input
