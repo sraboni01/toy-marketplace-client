@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -34,19 +33,19 @@ const Header = () => {
               <Link to={Error}></Link>
               <Link
                 className="p-3 text-decoration-none text-white"
-                to={"/register"}
+                to={"/alltoys"}
               >
                 All Toys
               </Link>
               <Link
                 className="p-3 text-decoration-none text-white"
-                to={"/register"}
+                to={"/mytoys"}
               >
                 My Toys
               </Link>
               <Link
                 className="p-3 text-decoration-none text-white"
-                to={"/register"}
+                to={"/addtoys"}
               >
                 Add Toys
               </Link>

@@ -9,17 +9,17 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCMahm4SVsjYvSF5WSkqw61NCPAaAafE3Y",
+  apiKey: "AIzaSyAbgYqs3BdM4RkXbWiX_9RD2HFNa_PIPLY",
 
-  authDomain: "auth-firebase-tailwind-9e488.firebaseapp.com",
+  authDomain: "assignment-582f8.firebaseapp.com",
 
-  projectId: "auth-firebase-tailwind-9e488",
+  projectId: "assignment-582f8",
 
-  storageBucket: "auth-firebase-tailwind-9e488.appspot.com",
+  storageBucket: "assignment-582f8.appspot.com",
 
-  messagingSenderId: "57907309338",
+  messagingSenderId: "83521038619",
 
-  appId: "1:57907309338:web:2a33d4ca37a8ed6b0d9aa3",
+  appId: "1:83521038619:web:c339b68313575bc4ef8bbe",
 };
 
 // Initialize Firebase

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useRouteError } from "react-router-dom";
 
 const Error = () => {
@@ -7,8 +6,11 @@ const Error = () => {
   return (
     <div className="container m-auto">
       <div className="p-5 m-5">
-        <h1>Oops! Your page is Not Found</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
+        <img
+          className="w-100 h-100vh"
+          src="https://i.ibb.co/pL06RT5/404-page.jpg"
+          alt=""
+        />
         <h2>
           <Link to={"/"}>Go Homepage</Link>
         </h2>
