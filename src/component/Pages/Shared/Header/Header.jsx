@@ -67,26 +67,34 @@ const Header = () => {
               </Link>
             </Nav>
 
-            <Nav>
-              {user && (
-                <Link className="p-3 border rounded-rounded text-white">
-                  <FaUserAlt />
-                  {user.email}
-                </Link>
-              )}
+            <Nav className="flex align-items-center gap-3">
+              <div>
+                {user ? (
+                  <img
+                    className="rounded-circle"
+                    style={{ width: "50px", height: "50px" }}
+                    src={user.photoURL}
+                    alt=""
+                  />
+                ) : (
+                  <FaUserAlt className="fs-1" />
+                )}
+              </div>
 
-              {user ? (
-                <Button onClick={handleLogout} className="btn btn-primary">
-                  LogOut
-                </Button>
-              ) : (
-                <Link
-                  className="p-3 text-decoration-none text-white"
-                  to={"/login"}
-                >
-                  Login
-                </Link>
-              )}
+              <div>
+                {user ? (
+                  <Button onClick={handleLogout} className="btn btn-primary">
+                    LogOut
+                  </Button>
+                ) : (
+                  <Link
+                    className="p-3 text-decoration-none text-white"
+                    to={"/login"}
+                  >
+                    Login
+                  </Link>
+                )}
+              </div>
             </Nav>
           </Navbar.Collapse>
         </div>

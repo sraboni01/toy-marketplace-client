@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -15,11 +16,12 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    //console.log(name, photo, email, password);
+    console.log(name, photo, email, password);
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
         console.log(createdUser);
+        updateDetails(createdUser, name, photo);
         form.reset();
         setError("");
         setSuccess("Registration has been successful");
@@ -39,6 +41,19 @@ const Register = () => {
         }
       });
   };
+
+  const updateDetails = (user, name, photo) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    })
+      .then(() => {
+        console.log("Updated profile");
+      })
+      .catch((error) => {
+        console.log("Failed to update profile", error);
+      });
+  };
   return (
     <div>
       <div className="py-5 h-100 container-fluid">
@@ -54,39 +69,41 @@ const Register = () => {
                   <h2 className="fw-bold mb-2 text-uppercase">Registration</h2>
                   <p className="text-black-50 mb-5">Please Fill Up The Form!</p>
                   <div className="form-outline form-white mb-4">
+                    <label className="form-label">Name</label>
                     <input
                       type="name"
                       name="name"
                       className="form-control form-control-lg"
                     />
-                    <label className="form-label">Name</label>
                   </div>
 
                   <div className="form-outline form-white mb-4">
+                    <label className="form-label">Email</label>
                     <input
                       type="email"
                       name="email"
                       className="form-control form-control-lg"
                     />
-                    <label className="form-label">Email</label>
                   </div>
 
                   <div className="form-outline form-white mb-4">
+                    <label className="form-label">Password</label>
                     <input
                       type="password"
                       name="password"
                       className="form-control form-control-lg"
                     />
-                    <label className="form-label">Password</label>
+
                     <p className="fw-bold text-danger">{error}</p>
                   </div>
                   <div className="form-outline form-white mb-4">
+                    <label className="form-label">Photo Url</label>
                     <input
                       type="text"
                       name="photo"
                       className="form-control form-control-lg"
                     />
-                    <label className="form-label">Photo Url</label>
+
                     <p className="fw-bold text-danger">{error}</p>
                   </div>
                   <div className=" justify-content-center text-center mt-4 pt-1">

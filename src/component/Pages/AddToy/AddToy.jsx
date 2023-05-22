@@ -76,9 +76,9 @@ const AddToy = () => {
                     aria-label="Default select example"
                   >
                     <option>Select Sub Category</option>
-                    <option value="Math Toys"> Math Toys</option>
-                    <option value="Language Toys">Language Toys</option>
-                    <option value="Science Toys">Science Toys</option>
+                    <option value="Taddy Bear"> Taddy Bear</option>
+                    <option value="Horse">Horse</option>
+                    <option value="Dainosur">Dainosur</option>
                   </select>
                   <label className="form-label"> Sub Category </label>
                   <p className="fw-bold text-danger">{error}</p>
@@ -124,25 +124,11 @@ const AddToy = () => {
                   <p className="fw-bold text-danger">{error}</p>
                 </div>
 
-                <div className=" justify-content-center text-center mt-4 pt-1">
-                  <Button
-                    type="submit"
-                    className="btn btn-primary btn-lg btn-block"
-                  >
-                    Sign Up
-                  </Button>
-                </div>
-              </div>
-              <div>
-                <p className="fw-bold text-success">{success}</p>
-              </div>
-              <div>
-                <p className="mb-0">
-                  You have already an account?
-                  <Link to={"/login"} className="text-primary-50 fw-bold">
-                    Sign In
-                  </Link>
-                </p>
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="submit"
+                />
               </div>
             </div>
           </Form>
