@@ -14,6 +14,7 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const photo = form.photo.value;
     //console.log(name, photo, email, password);
     createUser(email, password)
       .then((result) => {
@@ -77,6 +78,15 @@ const Register = () => {
                       className="form-control form-control-lg"
                     />
                     <label className="form-label">Password</label>
+                    <p className="fw-bold text-danger">{error}</p>
+                  </div>
+                  <div className="form-outline form-white mb-4">
+                    <input
+                      type="text"
+                      name="photo"
+                      className="form-control form-control-lg"
+                    />
+                    <label className="form-label">Photo Url</label>
                     <p className="fw-bold text-danger">{error}</p>
                   </div>
                   <div className=" justify-content-center text-center mt-4 pt-1">
