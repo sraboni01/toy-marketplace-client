@@ -1,9 +1,19 @@
+import { useContext } from "react";
 import { Button } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../providers/AuthProviders";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut()
+      .then((result) => {})
+      .catch((error) => console.log(error));
+  };
+  console.log(user);
   return (
     <div>
       <Navbar bg="dark" variant="dark" expand="lg">
@@ -58,14 +68,25 @@ const Header = () => {
             </Nav>
 
             <Nav>
-              <Button className="btn btn-primary">LogOut</Button>
+              {user && (
+                <Link className="p-3 border rounded-rounded text-white">
+                  <FaUserAlt />
+                  {user.email}
+                </Link>
+              )}
 
-              <Link
-                className="p-3 text-decoration-none text-white"
-                to={"/login"}
-              >
-                Login
-              </Link>
+              {user ? (
+                <Button onClick={handleLogout} className="btn btn-primary">
+                  LogOut
+                </Button>
+              ) : (
+                <Link
+                  className="p-3 text-decoration-none text-white"
+                  to={"/login"}
+                >
+                  Login
+                </Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </div>
