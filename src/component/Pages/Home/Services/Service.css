@@ -5,7 +5,7 @@
 }
 
 .service-item:hover {
-  background: #fea116;
+  background: #3127e9;
 }
 
 .service-item {
@@ -17,6 +17,6 @@
 }
 
 .icon {
-  color: #eb9006;
+  color: #9c52fd;
   font-size: 40px;
 }
