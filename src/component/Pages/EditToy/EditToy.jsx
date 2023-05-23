@@ -73,14 +73,14 @@ const EditToy = () => {
           backgroundPosition: "center",
         }}
       >
-        <h2 className="text-white text-center p-5 fw-bold">Add Your Toys</h2>
+        <h2 className="text-white text-center p-5 fw-bold">Update Your Toys</h2>
       </div>
       <div className="container">
         <div className=" m-5 bg-light text-black shadow p-5">
           <Form onSubmit={handleEditToy}>
             <div className="card-body  text-center">
               <div className="mb-md-5 mt-md-4">
-                <h2 className="fw-bold mb-2">Please Fill Up The Form!</h2>
+                <h2 className="fw-bold mb-2">Please Update The Form!</h2>
                 <div className="form-outline form-white mb-4">
                   <label className="form-label">Name</label>
                   <input
