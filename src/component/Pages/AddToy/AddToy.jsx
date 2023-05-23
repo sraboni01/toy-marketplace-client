@@ -90,15 +90,16 @@ const AddToy = () => {
                   />
                 </div>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label"> Seller Email</label>
                   <input
                     type="email"
                     name="selleremail"
                     placeholder="Enter your seller email"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label"> Seller email</label>
                 </div>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label"> Sub Category </label>
                   <select
                     name="category"
                     className="form-select"
@@ -108,43 +109,42 @@ const AddToy = () => {
                     <option value="Horse">Horse</option>
                     <option value="Dainosur">Dainosur</option>
                   </select>
-                  <label className="form-label"> Sub Category </label>
                 </div>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label"> Price</label>
                   <input
                     type="text"
                     name="price"
                     placeholder="Price"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label"> Price</label>
                 </div>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label"> Rating</label>
                   <input
                     type="text"
                     name="rating"
                     placeholder="Rating"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label"> Rating</label>
                 </div>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label"> Available Quantity</label>
                   <input
                     type="text"
                     name="quantity"
                     placeholder="Available Quantity"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label"> Available quantity</label>
                 </div>
                 <div className="form-outline form-white mb-4">
+                  <label className="form-label"> Detail Description</label>
                   <textarea
                     type="textarea"
                     name="details"
                     placeholder="Detail Ddescription"
                     className="form-control form-control-lg"
                   />
-                  <label className="form-label"> Detail description</label>
                 </div>
 
                 <input
