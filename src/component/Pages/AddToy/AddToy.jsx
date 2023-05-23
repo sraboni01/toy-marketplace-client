@@ -50,9 +50,11 @@ const AddToy = () => {
             confirmButtonText: "Cool",
           });
         }
+
+        form.reset();
       });
 
-    console.log(toys);
+    //console.log(toys);
   };
   return (
     <div>

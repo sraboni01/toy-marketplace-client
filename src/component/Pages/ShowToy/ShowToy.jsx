@@ -51,10 +51,12 @@ const ShowToy = ({ toy }) => {
             <td>{price}</td>
             <td>{quantity}</td>
             <td>
-              <button type="button" className="btn btn-info btn-sm px-3 m-1">
-                View Details
-              </button>
-
+              {" "}
+              <Link to={`/details/${_id}`}>
+                <button type="button" className="btn btn-info btn-sm px-3 m-1">
+                  View Details
+                </button>
+              </Link>
               <Link to={`/edit/${_id}`}>
                 <button
                   type="button"
@@ -63,7 +65,6 @@ const ShowToy = ({ toy }) => {
                   <FaRegEdit></FaRegEdit>
                 </button>
               </Link>
-
               <button
                 onClick={() => handleDelete(_id)}
                 type="button"
