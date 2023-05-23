@@ -52,8 +52,7 @@ const router = createBrowserRouter([
       {
         path: "/edit/:id",
         element: <EditToy></EditToy>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffee/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
       },
     ],
   },

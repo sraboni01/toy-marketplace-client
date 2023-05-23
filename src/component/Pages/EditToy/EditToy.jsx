@@ -1,9 +1,22 @@
 import React from "react";
 import Swal from "sweetalert2";
 import banner from "../../../img/banner.jpg";
-import { Form } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 
 const EditToy = () => {
+  const toy = useLoaderData();
+  const {
+    _id,
+    name,
+    photo,
+    sellername,
+    selleremail,
+    category,
+    price,
+    rating,
+    quantity,
+    details,
+  } = toy;
   const handleEditToy = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -28,8 +41,8 @@ const EditToy = () => {
       quantity,
       details,
     };
-
-    fetch(`http://localhost:5000/toy${_id}`, {
+    console.log(updateToys);
+    fetch(`http://localhost:5000/toy/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -49,7 +62,7 @@ const EditToy = () => {
         }
       });
 
-    console.log(toys);
+    //console.log(toys);
   };
   return (
     <div>
@@ -73,6 +86,7 @@ const EditToy = () => {
                   <input
                     type="name"
                     name="name"
+                    defaultValue={name}
                     placeholder="Enter your toy name"
                     className="form-control form-control-lg"
                   />
@@ -82,6 +96,7 @@ const EditToy = () => {
                   <input
                     type="text"
                     name="photo"
+                    defaultValue={photo}
                     placeholder="Picture URL of the toy"
                     className="form-control form-control-lg"
                   />
@@ -92,6 +107,7 @@ const EditToy = () => {
                     type="text"
                     placeholder="Enter seller name"
                     name="sellername"
+                    defaultValue={sellername}
                     className="form-control form-control-lg"
                   />
                 </div>
@@ -100,6 +116,7 @@ const EditToy = () => {
                   <input
                     type="email"
                     name="selleremail"
+                    defaultValue={selleremail}
                     placeholder="Enter your seller email"
                     className="form-control form-control-lg"
                   />
@@ -107,6 +124,7 @@ const EditToy = () => {
                 <div className="form-outline form-white mb-4">
                   <label className="form-label"> Sub Category </label>
                   <select
+                    defaultValue={category}
                     name="category"
                     className="form-select"
                     aria-label="Default select example"
@@ -120,6 +138,7 @@ const EditToy = () => {
                   <label className="form-label"> Price</label>
                   <input
                     type="text"
+                    defaultValue={price}
                     name="price"
                     placeholder="Price"
                     className="form-control form-control-lg"
@@ -129,6 +148,7 @@ const EditToy = () => {
                   <label className="form-label"> Rating</label>
                   <input
                     type="text"
+                    defaultValue={rating}
                     name="rating"
                     placeholder="Rating"
                     className="form-control form-control-lg"
@@ -138,6 +158,7 @@ const EditToy = () => {
                   <label className="form-label"> Available Quantity</label>
                   <input
                     type="text"
+                    defaultValue={quantity}
                     name="quantity"
                     placeholder="Available Quantity"
                     className="form-control form-control-lg"
@@ -147,6 +168,7 @@ const EditToy = () => {
                   <label className="form-label"> Detail Description</label>
                   <textarea
                     type="textarea"
+                    defaultValue={details}
                     name="details"
                     placeholder="Detail Ddescription"
                     className="form-control form-control-lg"
