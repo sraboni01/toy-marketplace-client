@@ -13,6 +13,7 @@ import Blog from "./component/Pages/Home/Blog/Blog";
 import AddToy from "./component/Pages/AddToy/AddToy";
 import MyToys from "./component/Pages/MyToys/MyToys";
 import AllToys from "./component/Pages/AllToys/AllToys";
+import EditToy from "./component/Pages/EditToy/EditToy";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +48,12 @@ const router = createBrowserRouter([
         path: "/alltoys",
         element: <AllToys></AllToys>,
         loader: () => fetch("http://localhost:5000/toy"),
+      },
+      {
+        path: "/edit/:id",
+        element: <EditToy></EditToy>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/coffee/${params.id}`),
       },
     ],
   },

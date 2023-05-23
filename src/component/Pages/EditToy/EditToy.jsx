@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import "./AddToy.css";
-import banner from "../../../img/banner.jpg";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import React from "react";
 import Swal from "sweetalert2";
+import banner from "../../../img/banner.jpg";
+import { Form } from "react-router-dom";
 
-const AddToy = () => {
-  const handlerAddToy = (event) => {
+const EditToy = () => {
+  const handleEditToy = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -20,7 +17,7 @@ const AddToy = () => {
     const quantity = form.quantity.value;
     const details = form.details.value;
 
-    const toys = {
+    const updateToys = {
       name,
       photo,
       sellername,
@@ -32,20 +29,20 @@ const AddToy = () => {
       details,
     };
 
-    fetch("http://localhost:5000/toy", {
-      method: "POST",
+    fetch(`http://localhost:5000/toy${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(toys),
+      body: JSON.stringify(updateToys),
     })
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
-        if (data.insertedId) {
+        console.log(data);
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Toy added successfully",
+            text: "Toy Updated Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -67,7 +64,7 @@ const AddToy = () => {
       </div>
       <div className="container">
         <div className=" m-5 bg-light text-black shadow p-5">
-          <Form onSubmit={handlerAddToy}>
+          <Form onSubmit={handleEditToy}>
             <div className="card-body  text-center">
               <div className="mb-md-5 mt-md-4">
                 <h2 className="fw-bold mb-2">Please Fill Up The Form!</h2>
@@ -170,4 +167,4 @@ const AddToy = () => {
   );
 };
 
-export default AddToy;
+export default EditToy;

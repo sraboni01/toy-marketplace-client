@@ -55,7 +55,7 @@ const ShowToy = ({ toy }) => {
                 View Details
               </button>
 
-              <Link to={"{`/edit/${_id}`}"}>
+              <Link to={`/edit/${_id}`}>
                 <button
                   type="button"
                   className="btn btn-success btn-sm px-3 m-1"
