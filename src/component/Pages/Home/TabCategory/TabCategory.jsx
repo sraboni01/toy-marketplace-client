@@ -1,12 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TabCategory.css";
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const TabCategory = () => {
   const [toggleState, setToggleState] = useState(1);
+  const [datas, setDatas] = useState([]);
+  console.log(datas);
+  const [categorys, setCategorys] = useState("Taddy Bear");
 
   const toggleTab = (index) => {
     setToggleState(index);
   };
+
+  // name,
+  //       photo,
+  //       sellername,
+  //       selleremail,
+  //       category,
+  //       price,
+  //       rating,
+  //       quantity,
+  //       details,
+
+  console.log(categorys);
+  useEffect(() => {
+    fetch(`http://localhost:5000/category?category=${categorys}`)
+      .then((res) => res.json())
+      .then((data) => setDatas(data));
+  }, [categorys]);
 
   return (
     <div className="tabcategory">
@@ -23,19 +45,33 @@ const TabCategory = () => {
             className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
             onClick={() => toggleTab(1)}
           >
-            <span className="fw-bold">Teddy Bear</span>
+            <span
+              className="fw-bold"
+              onClick={() => setCategorys("Taddy Bear")}
+            >
+              Teddy Bear
+            </span>
           </button>
           <button
             className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
             onClick={() => toggleTab(2)}
           >
-            <span className="fw-bold">Horse</span>
+            <span onClick={() => setCategorys("Horse")} className="fw-bold">
+              Horse
+            </span>
           </button>
           <button
             className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
             onClick={() => toggleTab(3)}
           >
-            <span className="fw-bold">Dinosaur</span>
+            <span
+              className="fw-bold"
+              onClick={() => {
+                setCategorys("Dinosaur");
+              }}
+            >
+              Dinosaur
+            </span>
           </button>
         </div>
 
@@ -45,43 +81,25 @@ const TabCategory = () => {
               toggleState === 1 ? "content  active-content" : "content"
             }
           >
-            <h2>Content 1</h2>
-            <hr />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-              praesentium incidunt quia aspernatur quasi quidem facilis quo
-              nihil vel voluptatum?
-            </p>
-          </div>
-
-          <div
-            className={
-              toggleState === 2 ? "content  active-content" : "content"
-            }
-          >
-            <h2>Content 2</h2>
-            <hr />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-              voluptatum qui adipisci.
-            </p>
-          </div>
-
-          <div
-            className={
-              toggleState === 3 ? "content  active-content" : "content"
-            }
-          >
-            <h2>Content 3</h2>
-            <hr />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-              nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-              Accusamus in quia odit aspernatur provident et ad vel distinctio
-              recusandae totam quidem repudiandae omnis veritatis nostrum
-              laboriosam architecto optio rem, dignissimos voluptatum beatae
-              aperiam voluptatem atque. Beatae rerum dolores sunt.
-            </p>
+            <div>
+              {datas.map((data) => (
+                <Card style={{ width: "18rem" }}>
+                  <Card.Img variant="top" src={data.photo} />
+                  <Card.Body>
+                    <Card.Title>{data.name}</Card.Title>
+                    <Card.Text>
+                      <p>
+                        Rating: <span>{data.rating}</span>
+                      </p>
+                    </Card.Text>
+                    <Link to={`/details/${data._d}`}>
+                      {" "}
+                      <Button variant="primary">View details</Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>
