@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, ListGroup } from "react-bootstrap";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import banner from "../../img/banner.jpg";
 
 const Details = () => {
   const detail = useLoaderData();
@@ -19,23 +20,55 @@ const Details = () => {
   } = detail;
   return (
     <div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Img variant="top" src={photo} />
-          <ListGroup className="list-group-flush">
-            <ListGroup.Item>{sellername}</ListGroup.Item>
-            <ListGroup.Item>{selleremail}</ListGroup.Item>
-            <ListGroup.Item>{category}</ListGroup.Item>
-            <ListGroup.Item>{price}</ListGroup.Item>
-            <ListGroup.Item>{rating}</ListGroup.Item>
-            <ListGroup.Item>{quantity}</ListGroup.Item>
-            <ListGroup.Item>{details}</ListGroup.Item>
-          </ListGroup>
-          <Card.Link to={"/addtoys"}>Add Toy</Card.Link>
-          <Card.Link to={"/alltoys"}>Show All Toy</Card.Link>
-        </Card.Body>
-      </Card>
+      <div
+        className="banner p-5"
+        style={{
+          backgroundImage: `url(${banner})`,
+          backgroundPosition: "center",
+        }}
+      >
+        <h2 className="text-white text-center p-5 fw-bold">
+          Details Your Toys
+        </h2>
+      </div>
+      <div className="container p-5">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="card">
+              <a className="img-card">
+                <img src={photo} />
+              </a>
+              <div className="card-content text-center">
+                <h4 className="card-title">Name : {name}</h4>
+                <h4 className="card-title">Seller Name : {sellername}</h4>
+                <h4 className="card-title">Seller Email : {selleremail}</h4>
+                <h4 className="">Quantity, : {price}</h4>
+                <h4 className="">Price : {price}</h4>
+                <h4 className="">Rating : {rating}</h4>
+                <h4 className="">Details : {details}</h4>
+              </div>
+              <div className="card-read-more text-center">
+                <Link to={"/mytoys"}>
+                  <button
+                    type="button"
+                    className="btn btn-success btn-sm px-3 m-1 fw-bold "
+                  >
+                    My Toys
+                  </button>
+                </Link>
+                <Link to={"/addtoys"}>
+                  <button
+                    type="button"
+                    className="btn btn-info btn-sm px-3 m-1 fw-bold "
+                  >
+                    Add Toys
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

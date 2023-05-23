@@ -81,23 +81,30 @@ const TabCategory = () => {
               toggleState === 1 ? "content  active-content" : "content"
             }
           >
-            <div>
+            <div className="row">
               {datas.map((data) => (
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={data.photo} />
-                  <Card.Body>
-                    <Card.Title>{data.name}</Card.Title>
-                    <Card.Text>
-                      <p>
-                        Rating: <span>{data.rating}</span>
-                      </p>
-                    </Card.Text>
-                    <Link to={`/details/${data._d}`}>
-                      {" "}
-                      <Button variant="primary">View details</Button>
-                    </Link>
-                  </Card.Body>
-                </Card>
+                <div className="col-lg-4">
+                  <div className="card">
+                    <a className="img-card">
+                      <img src={data.photo} />
+                    </a>
+                    <div className="card-content">
+                      <h4 className="card-title">Name : {data.name}</h4>
+                      <p className="">Price : {data.price}</p>
+                      <p className="">Rating : {data.rating}</p>
+                    </div>
+                    <div className="card-read-more text-center">
+                      <Link to={`/details/${data._id}`}>
+                        <button
+                          type="button"
+                          className="btn btn-sm px-3 m-1 fw-bold "
+                        >
+                          View Details
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
