@@ -4,6 +4,7 @@ import banner from "../../../img/banner.jpg";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const handlerAddToy = (event) => {
@@ -38,9 +39,17 @@ const AddToy = () => {
       },
       body: JSON.stringify(toys),
     })
-      .then((res) => res.json)
-      .then((daa) => {
+      .then((res) => res.json())
+      .then((data) => {
         //console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Coffee added successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
       });
 
     console.log(toys);
