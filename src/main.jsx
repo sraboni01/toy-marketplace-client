@@ -44,22 +44,24 @@ const router = createBrowserRouter([
       {
         path: "/mytoys",
         element: <MyToys></MyToys>,
-        loader: () => fetch("http://localhost:5000/toy"),
+        loader: () => fetch("https://y-mbbxolfp7-sraboni01.vercel.app/toy"),
       },
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:5000/toy"),
+        loader: () => fetch("https://y-mbbxolfp7-sraboni01.vercel.app/toy"),
       },
       {
         path: "/edit/:id",
         element: <EditToy></EditToy>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://y-mbbxolfp7-sraboni01.vercel.app/toy/${params.id}`),
       },
       {
         path: "/details/:id",
         element: <Details></Details>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://y-mbbxolfp7-sraboni01.vercel.app/toy/${params.id}`),
       },
     ],
   },
