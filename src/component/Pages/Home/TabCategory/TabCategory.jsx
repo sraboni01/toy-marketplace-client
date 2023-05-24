@@ -35,8 +35,8 @@ const TabCategory = () => {
     <div>
       <div className="container text-center">
         <h2 className="mb-4 fw-bold text-uppercase">
-          <span style={{ color: "#9c52fd", fontSize: "48px" }}>W</span>
-          Trending Product
+          <span style={{ color: "#9c52fd", fontSize: "48px" }}>T</span>
+          rending Product
         </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -45,13 +45,13 @@ const TabCategory = () => {
       </div>
       <Tabs>
         <TabList className="container text-center tablist">
-          <Tab onClick={() => setCategorys("Taddy Bear")}> Teddy Bear</Tab>
+          <Tab onClick={() => setCategorys("Taddy Bear")}>Teddy Bear</Tab>
           <Tab onClick={() => setCategorys("Horse")}> Horse</Tab>
           <Tab onClick={() => setCategorys("Dainosur")}>Dainosur </Tab>
         </TabList>
         {/* Tab panner is here */}
         <TabPanel>
-          <div className="container p-5">
+          <div className="container  p-5">
             <div className="row d-flex">
               {datas.slice(0, 3).map((data) => (
                 <>
@@ -106,20 +106,12 @@ const TabCategory = () => {
                         <h4 className="">Rating : {data.rating}</h4>
                       </div>
                       <div className="card-read-more text-center">
-                        <Link to={"/mytoys"}>
+                        <Link to={`/details/${data._id}`}>
                           <button
                             type="button"
-                            className="btn btn-success btn-sm px-3 m-1 fw-bold "
+                            className="btn btn-outline-primary btn-sm px-3 m-1"
                           >
-                            My Toys
-                          </button>
-                        </Link>
-                        <Link to={"/addtoys"}>
-                          <button
-                            type="button"
-                            className="btn btn-info btn-sm px-3 m-1 fw-bold "
-                          >
-                            Add Toys
+                            View Details
                           </button>
                         </Link>
                       </div>

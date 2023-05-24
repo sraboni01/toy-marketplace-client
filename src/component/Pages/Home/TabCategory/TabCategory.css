@@ -164,3 +164,6 @@ h1.heading {
   background-color: rgb(199, 242, 242);
   padding: 20px;
 }
+.react-tabs__tab {
+  font-weight: bold;
+}
