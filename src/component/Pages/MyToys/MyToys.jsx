@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import banner from "../../../img/banner.jpg";
 import ShowToy from "../ShowToy/ShowToy";
 
@@ -22,6 +22,16 @@ const MyToys = () => {
         {toys.map((toy) => (
           <ShowToy key={toy._id} toy={toy}></ShowToy>
         ))}
+        <div className="card-read-more text-center">
+          <Link to={"/addtoys"}>
+            <button
+              type="button"
+              className="btn btn-info btn-sm px-3 m-1 fw-bold "
+            >
+              Add Toys
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

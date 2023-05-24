@@ -160,3 +160,7 @@ h1.heading {
   font-weight: 600;
   text-transform: uppercase;
 }
+.tablist {
+  background-color: rgb(199, 242, 242);
+  padding: 20px;
+}
