@@ -73,7 +73,7 @@ const TabCategory = () => {
                         <Link to={`/details/${data._id}`}>
                           <button
                             type="button"
-                            className="btn btn-info btn-sm px-3 m-1"
+                            className="btn btn-outline-primary btn-sm px-3 m-1"
                           >
                             View Details
                           </button>
@@ -142,20 +142,12 @@ const TabCategory = () => {
                         <h4 className="">Rating : {data.rating}</h4>
                       </div>
                       <div className="card-read-more text-center">
-                        <Link to={"/mytoys"}>
+                        <Link to={`/details/${data._id}`}>
                           <button
                             type="button"
-                            className="btn btn-success btn-sm px-3 m-1 fw-bold "
+                            className="btn btn-outline-primary btn-sm px-3 m-1"
                           >
-                            My Toys
-                          </button>
-                        </Link>
-                        <Link to={"/addtoys"}>
-                          <button
-                            type="button"
-                            className="btn btn-info btn-sm px-3 m-1 fw-bold "
-                          >
-                            Add Toys
+                            View Details
                           </button>
                         </Link>
                       </div>
