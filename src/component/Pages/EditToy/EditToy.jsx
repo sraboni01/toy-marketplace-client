@@ -42,7 +42,7 @@ const EditToy = () => {
       details,
     };
     console.log(updateToys);
-    fetch(`http://localhost:5000/toy/${_id}`, {
+    fetch(`https://y-mbbxolfp7-sraboni01.vercel.app/toy/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

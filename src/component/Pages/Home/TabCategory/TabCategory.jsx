@@ -26,7 +26,9 @@ const TabCategory = () => {
 
   console.log(categorys);
   useEffect(() => {
-    fetch(`http://localhost:5000/category?category=${categorys}`)
+    fetch(
+      `https://y-mbbxolfp7-sraboni01.vercel.app/category?category=${categorys}`
+    )
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, [categorys]);
